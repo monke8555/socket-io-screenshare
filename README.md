@@ -20,13 +20,13 @@ The server to receive and re-transmit the screen.
 First make sure you have [node.js](https://github.com/nodejs/node) installed
 
 Download the client for your OS, Linux, macOS, Windows, or Android (Coming soon).  
-Next, open your terminal in the Server directory and run `npm start`
-Don't close the terminal until you finish using the programs, as closing it will make you unable to share.
-Now, open the Webpage directory, and open index.html in your browser and click the "Share Screen" button. Choose what you want to share in the dialog that opens.
-After doing that, keep the webpage open, and start the client you downloaded, and run the binary for your OS. It's name will start with ScreenShareClient and end with your OS's executable format (exe, app, dmg, or nothing for linux).
-If you use linux you might need to do `chmod +x ScreenShareClient` or give it executable permissions by using the context menu first.
-And there you go!
-Please star this repo if you liked it.
+Next, open your terminal in the Server directory and run `npm start`  
+Don't close the terminal until you finish using the programs, as closing it will make you unable to share.  
+Now, open the Webpage directory, and open index.html in your browser and click the "Share Screen" button. Choose what you want to share in the dialog that opens.  
+After doing that, keep the webpage open, and start the client you downloaded, and run the binary for your OS. It's name will start with ScreenShareClient and end with your OS's executable format (exe, app, dmg, or nothing for linux).  
+If you use linux you might need to do `chmod +x ScreenShareClient` or give it executable permissions by using the context menu first.  
+And there you go!  
+Please star this repo if you liked it.  
 
 ## License
 
