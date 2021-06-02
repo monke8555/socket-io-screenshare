@@ -1,0 +1,21 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ScreenShareClient.MainWindow"
+        Title="ScreenShareClient"
+		Background="#252525">
+
+	<StackPanel>
+		<Label Grid.Row="1" Grid.Column="1" FontFamily="Cascadia Code, Segoe UI, Tahoma, Calibri, Times New Roman" Foreground="#F1F1F1" Content="Server URL (has to start with ws:// e.g. ws://localhost:3000)" />		
+		
+		<StackPanel Orientation="Horizontal">
+			<TextBox Name="URL" Grid.Row="2" Grid.Column="1" FontFamily="Cascadia Code, Segoe UI, Tahoma, Calibri, Times New Roman" Text="ws://localhost:3000" />
+			<Button Name="Connect" Grid.Column="2" Grid.Row="2" Content="Connect" Foreground="#F1F1F1" HorizontalAlignment="Right" FontFamily="Cascadia Code, Segoe UI, Tahoma, Calibri, Times New Roman" />
+		</StackPanel>
+		
+		<Image Stretch="Fill" Name="Screen" />
+	</StackPanel>
+	
+</Window>

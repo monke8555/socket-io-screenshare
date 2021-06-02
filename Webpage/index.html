@@ -1,0 +1,59 @@
+<html lang="en">
+
+<head>
+    <title>Screen sharing using Socket.IO</title>
+    <script src="socket.io.js"></script>
+    <script>
+        async function capture() {
+            try {
+                let displayMediaOptions = {
+                    video: {
+                        cursor: "always"
+                    },
+                    audio: false,
+                    logicalSurface: true
+                };
+                captureStream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+                let canvas = document.getElementById("canvas");
+                let context = canvas.getContext("2d");
+                const video = document.createElement('video');
+                video.autoplay = true;
+                video.srcObject = captureStream;
+
+                video.onplay = () => {
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    send();
+                };
+                let server = "ws://localhost:3000";
+                server = document.getElementById("server").value.trim();
+                const socket = io(server, {
+                    withCredentials: false
+                });
+
+                socket.on("connect", () => {
+                    socket.emit("hello", "Webpage connected");
+                });
+
+                let send = function() {
+                    canvas.getContext('2d').drawImage(video, 0, 0);
+                    let base64 = canvas.toDataURL().replace("data:image/png;base64,", "").replace("data:image/jpeg;base64,").replace("data:image/jpg;base64,");
+                    socket.emit("screen", base64);
+                    setTimeout(send, 1);
+                }
+            } catch (err) {
+                console.error("Error: " + err);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="capture()">Share Screen</button>
+    <br>
+    <label>Enter server (e.g. ws://localhost:3000):</label>
+    <input id="server" value="ws://localhost:3000" />
+    <canvas id="canvas"></canvas>
+</body>
+
+</html>
